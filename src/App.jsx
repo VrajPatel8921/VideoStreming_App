@@ -9,7 +9,7 @@ function App() {
       <Box sx={{ backgroundColor: '#000' }}>
         <Navbar/>
         <Outlet />
-        <h1 style={{ color: '#fff' }}>Welcome to the YouTube Clone</h1>
+        <h1 style={{ color: '#fff' }}>Welcome to the YouTube Clone.</h1>
       </Box>
     </>
   )
