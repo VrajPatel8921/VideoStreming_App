@@ -4,10 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
-import Feed from './components/Feed.jsx';
-import VideoDetail from './components/VideoDetail.jsx';
-import ChannelDetail from './components/ChannelDetail.jsx';
-import SearchFeed from './components/SearchFeed.jsx';
+import { Feed, VideoDetail, ChannelDetail, SearchFeed } from './components';
 
 
 const router = createBrowserRouter([
