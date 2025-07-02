@@ -7,9 +7,11 @@ function App() {
   return (
     <>
       <Box sx={{ backgroundColor: '#000' }}>
-        <Navbar/>
-        <Outlet />
-        
+        <Navbar />
+        <div className='pt-2'>
+          <Outlet />
+        </div>
+
       </Box>
     </>
   )
