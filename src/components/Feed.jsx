@@ -1,5 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { Box, Stack, Typography } from '@mui/material'
+import { Slidebar,Videos } from './index'
+import { fetchFromAPI } from '../utils/fetchFromAPI'
 
 
 const Feed = () => {
@@ -17,12 +19,27 @@ const Feed = () => {
         }}
         
       >
-        Slidebar
-
-        <Typography>
-          
+        <Slidebar/>
+      </Box>
+      <Box
+      p={2}
+      sx={{
+        overflowY: 'auto',
+        height: '90vh',
+        flex: 2,
+        color: 'white',
+      }}
+      >
+        <Typography
+          variant='h4'
+          fontWeight='bold'
+          mb={2}
+          sx={{ color: 'white', padding: '10px' }}
+        >
+          New <span style={{ color: '#F31503' }}>Videos</span>
         </Typography>
-
+        
+        <Videos/>
       </Box>
     </Stack>
   )
