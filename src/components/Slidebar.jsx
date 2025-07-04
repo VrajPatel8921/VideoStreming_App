@@ -2,8 +2,10 @@ import {react,useState} from 'react';
 import { Stack } from '@mui/material';
 import { categories } from '../utils/constants';
 
-const Slidebar = () => {
-    const setCetogery='Coding'
+const Slidebar = ({selectedCategory,setSelectedCategory}) => {
+    
+    
+    
     return (
         <Stack
             direction='row'
@@ -18,8 +20,9 @@ const Slidebar = () => {
                 return (
                     <button
                         key={category.name}
+                        onClick={() => setSelectedCategory(category.name)}
                         style={{
-                            background: category.name === setCetogery && "#364153"
+                            background: category.name === selectedCategory && "#364153"
                             
                         }}
                         className='category-btn flex items-center gap-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700'
@@ -27,12 +30,12 @@ const Slidebar = () => {
                         <span
                             
                          style={{
-                            color: category.name === setCetogery ? '#F31503' : 'white',
+                            color: category.name === selectedCategory ? '#F31503' : 'white',
                          }}
                         ><Icon /></span>
                         <span
                         style={{
-                            opacity: category.name === setCetogery ? '1' : "0.8",
+                            opacity: category.name === selectedCategory ? '1' : "0.8",
                         }}
                         >{category.name}</span>
                     </button>

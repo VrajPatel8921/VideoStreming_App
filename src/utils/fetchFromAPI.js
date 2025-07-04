@@ -6,6 +6,11 @@ const options = {
 	url:BASE_URL,
 	hostname: 'youtube-v31.p.rapidapi.com',
 	port: null,
+	params: {
+		minResults:50,
+        maxResults: 500,
+        regionCode: 'IN',
+    },
 	path: '/search?relatedToVideoId=7ghhRHRP6t4&part=id%2Csnippet&type=video&maxResults=50',
 	headers: {
 		'x-rapidapi-key': import.meta.env.VITE_RAPID_API_KEY,
