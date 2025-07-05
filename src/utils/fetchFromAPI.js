@@ -1,24 +1,32 @@
 import axios from "axios";
 
-const BASE_URL='https://youtube-v31.p.rapidapi.com';
+const BASE_URL = 'https://www.googleapis.com/youtube/v3';
 
-const options = {
-	url:BASE_URL,
-	hostname: 'youtube-v31.p.rapidapi.com',
-	port: null,
-	params: {
-		minResults:50,
-        maxResults: 500,
-        regionCode: 'IN',
-    },
-	path: '/search?relatedToVideoId=7ghhRHRP6t4&part=id%2Csnippet&type=video&maxResults=50',
-	headers: {
-		'x-rapidapi-key': import.meta.env.VITE_RAPID_API_KEY,
-		'x-rapidapi-host': 'youtube-v31.p.rapidapi.com'
+// const options = {
+// 	url: BASE_URL,
+// 	hostname: 'youtube-v31.p.rapidapi.com',
+// 	port: null,
+// 	params: {
+// 		maxResults: 500,
+// 		regionCode: 'IN',
+// 	},
+// 	path: '/search?relatedToVideoId=7ghhRHRP6t4&part=id%2Csnippet&type=video&maxResults=50',
+// 	headers: {
+// 		'x-rapidapi-key': import.meta.env.VITE_RAPID_API_KEY,
+// 		'x-rapidapi-host': 'youtube-v31.p.rapidapi.com'
+// 	}
+// };
+
+export const fetchFromAPI = async (url) => {
+	console.log(import.meta.env.VITE_YOUTUBE_API_KEY)
+	try {
+		const { data } = await axios.get(`${BASE_URL}/${url}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
+		return data;
+	} catch (error) {
+		if(error) {
+      	console.error('API Error:', error);
+    }
+
+    return { items: [] }; // so your app doesn't crash
 	}
-};
-
-export const fetchFromAPI=async(url)=>{
-   const {data}= await axios.get(`${BASE_URL}/${url}`,options)
-   return data;
 }

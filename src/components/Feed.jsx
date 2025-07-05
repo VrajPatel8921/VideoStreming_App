@@ -4,13 +4,13 @@ import { Slidebar,Videos } from './index'
 import { fetchFromAPI } from '../utils/fetchFromAPI'
 
 
+
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState('New');
   const [videos,setVideos] = useState([]);
 
-
   useEffect(()=>{
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data)=>setVideos(data.items))
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}&maxResults=50`).then((data)=>setVideos(data.items || []));
   },[selectedCategory])
 
 
