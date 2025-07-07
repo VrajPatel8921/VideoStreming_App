@@ -7,23 +7,24 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const ChannelCard = ({ channelDetail }) => {
   const [subCount, setSubCount] = useState(0);
-  
+
+  /* For Reduce Quote For Youtube Api
   let sub = formatNumber(subCount);
   function formatNumber(subCount) {
     if (subCount < 1000) {
       return subCount.toString();
     } else if (subCount < 100000) {
-      return (subCount / 1000).toFixed(1) + "K";
+      return (subCount / 1000).toFixed(2) + "K";
     } else if (subCount < 1000000) {
-      return (subCount / 100000).toFixed(1) + "L";
+      return (subCount / 100000).toFixed(2) + "L";
     } else {
-      return (subCount / 1000000).toFixed(1) + "M";
+      return (subCount / 1000000).toFixed(2) + "M";
     }
   }
-
+  
   useEffect(() => {
     const channelId =
-      channelDetail?.id?.channelId || channelDetail?.id; // support both structures
+    channelDetail?.id?.channelId || channelDetail?.id; // support both structures
 
     if (!channelId) return;
 
@@ -37,12 +38,17 @@ const ChannelCard = ({ channelDetail }) => {
       }
     });
   }, [channelDetail?.id]);
+  */
 
   return (
     <Box
       sx={{
         boxShadow: 'none',
         borderRadius: '20px',
+        
+        display: "flex",
+        lexDirection: "column",
+        width: { md: "330px", lg: "338px", sm: "320px", xs: "280px" },
 
       }}
     >
@@ -66,7 +72,7 @@ const ChannelCard = ({ channelDetail }) => {
           </Typography>
           {(subCount !== null) && (
             <Typography variant="body2" color="white">
-              {sub} Subscribers
+              {subCount} Subscribers
             </Typography>
           )}
 
