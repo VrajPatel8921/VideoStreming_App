@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom';
 import { demoProfilePicture, demoChannelUrl } from '../utils/constants';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 
-const ChannelCard = ({ channelDetail }) => {
-  const [subCount, setSubCount] = useState(0);
-
-  /* For Reduce Quote For Youtube Api
-  let sub = formatNumber(subCount);
+const ChannelCard = ({ channelDetail,subCount }) => {
+  
+  
   function formatNumber(subCount) {
     if (subCount < 1000) {
       return subCount.toString();
@@ -22,32 +20,18 @@ const ChannelCard = ({ channelDetail }) => {
     }
   }
   
-  useEffect(() => {
-    const channelId =
-    channelDetail?.id?.channelId || channelDetail?.id; // support both structures
-
-    if (!channelId) return;
-
-    fetchFromAPI(`channels?part=statistics&id=${channelId}`).then((data) => {
-      if (data?.items?.length > 0) {
-        const count = data.items[0].statistics.subscriberCount;
-        console.log(`${channelDetail?.snippet?.title} Subscriber Count: ${count}`);
-        setSubCount(count);
-      } else {
-        setSubCount('0');
-      }
-    });
-  }, [channelDetail?.id]);
-  */
+  let sub = subCount? formatNumber(subCount): '0';
+  
 
   return (
     <Box
       sx={{
         boxShadow: 'none',
         borderRadius: '20px',
-        
         display: "flex",
-        lexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
         width: { md: "330px", lg: "338px", sm: "320px", xs: "280px" },
 
       }}
@@ -70,9 +54,9 @@ const ChannelCard = ({ channelDetail }) => {
             {channelDetail?.snippet?.title}
             <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }} />
           </Typography>
-          {(subCount !== null) && (
+          {subCount && (
             <Typography variant="body2" color="white">
-              {subCount} Subscribers
+              {sub} Subscribers
             </Typography>
           )}
 
