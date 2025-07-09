@@ -18,15 +18,16 @@ const ChannelDetail = () => {
     // if (!channelId) return;
 
     fetchFromAPI(`channels?part=statistics&id=${id}`).then((data) => {
-      console.log("Channel Api Response Data"+data);
+
       if (data?.items?.length > 0) {
 
         const count = parseInt(data.items[0].statistics.subscriberCount);
-        const channelData=data.items[0]
+        const channelData = data.items[0]
         setChannelDetail(channelData);
         setSubCount(count);
-        console.log("parsed Sub Count"+count);
-        console.log("ChannelData "+channelData);
+        // if (channelDetail) {
+        //   console.log("Channel Data Updated:", channelDetail);
+        // }
       } else {
         setSubCount(0);
         setChannelDetail(null);
@@ -37,7 +38,7 @@ const ChannelDetail = () => {
       setVideos(data.items);
     })
 
-  }, [id]);
+  }, [id, channelDetail, subCount]);
   return (
     <Box minHeight="90vh"
       flexDirection="column"
@@ -48,7 +49,7 @@ const ChannelDetail = () => {
           style={{
             background: ` radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)`,
             width: "100vw",
-            height: "300px",
+            height: "200px",
             width: "100vw",
             display: "flex",
             justifyContent: "center",
@@ -57,7 +58,12 @@ const ChannelDetail = () => {
         />
 
       </Box>
-      <ChannelCard channelDetail={channelDetail} subCount={subCount} />
+      <ChannelCard channelDetail={channelDetail} subCount={subCount} mt={"-93px"} />
+      <Box display="flex" p="2">
+        <Box sx={{ mr: { sm: "100px" } }} />
+        <Videos videos={videos} />
+
+      </Box>
 
     </Box>
 

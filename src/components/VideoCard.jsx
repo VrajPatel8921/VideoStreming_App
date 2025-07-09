@@ -9,6 +9,7 @@ const VideoCard = ({ video }) => {
   const videoId = video.id.videoId;
   const videoDetails = video.snippet;
   const channelId = video.snippet.channelId;
+  
   // console.log(videoId);
 
   return (
@@ -21,7 +22,7 @@ const VideoCard = ({ video }) => {
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         {/* <Link> */}
         <CardMedia
-          image={videoDetails?.thumbnails?.high?.url}
+          image={videoDetails?.thumbnails?.high?.url || demoThumbnailUrl }
           alt={demoThumbnailUrl}
           sx={{width: '358px' , height: 180}}
           // sx={{ width: { xs: '280px', sm: '358px', md: '320px' }, height: 180 }}

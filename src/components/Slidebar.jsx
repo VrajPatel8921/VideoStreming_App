@@ -3,9 +3,6 @@ import { Stack } from '@mui/material';
 import { categories } from '../utils/constants';
 
 const Slidebar = ({selectedCategory,setSelectedCategory}) => {
-    
-    
-    
     return (
         <Stack
             direction='row'

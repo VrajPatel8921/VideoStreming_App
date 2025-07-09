@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material'
 import { Link } from 'react-router-dom';
-import { demoProfilePicture, demoChannelUrl } from '../utils/constants';
+import { demoProfilePicture, demoChannelUrl,demoChannelTitle } from '../utils/constants';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 
-const ChannelCard = ({ channelDetail,subCount }) => {
-  
-  
+const ChannelCard = ({ channelDetail, subCount, mt }) => {
+
+
   function formatNumber(subCount) {
     if (subCount < 1000) {
       return subCount.toString();
@@ -19,9 +19,9 @@ const ChannelCard = ({ channelDetail,subCount }) => {
       return (subCount / 1000000).toFixed(2) + "M";
     }
   }
-  
-  let sub = subCount? formatNumber(subCount): '0';
-  
+
+  let sub = subCount ? formatNumber(subCount) : '0';
+
 
   return (
     <Box
@@ -33,37 +33,47 @@ const ChannelCard = ({ channelDetail,subCount }) => {
         alignItems: "center",
         flexDirection: "column",
         width: { md: "330px", lg: "338px", sm: "320px", xs: "280px" },
+        marginTop:mt
+
 
       }}
     >
       <Link to={`/channel/${channelDetail?.id?.channelId || demoChannelUrl}`}>
-        <CardContent className='flex flex-col items-center justify-center text-center'>
-          <CardMedia
-            image={channelDetail?.snippet?.thumbnails?.high?.url || demoProfilePicture}
-            alt={channelDetail?.snippet?.title}
-            sx={{
-              borderRadius: '50%',
-              width: '200px',
-              height: '200px',
-              borderRadius: '50%',
-              mb: 2,
-              border: "1px solid",
-            }}
-          />
-          <Typography variant="h6">
-            {channelDetail?.snippet?.title}
-            <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }} />
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center",
+            textAlign:"center",
+
+        }} >
+        <CardMedia
+          image={channelDetail?.snippet?.thumbnails?.high?.url || demoProfilePicture}
+          alt={channelDetail?.snippet?.title}
+          sx={{
+            borderRadius: '50%',
+            width: '200px',
+            height: '200px',
+            borderRadius: '50%',
+            mb: 2,
+            border: "1px solid",
+          }}
+        />
+        <Typography variant="h6" color='white'>
+          {channelDetail?.snippet?.title || demoChannelTitle}
+          <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }} />
+        </Typography>
+        {subCount && (
+          <Typography variant="body2" color="white">
+            {sub} Subscribers
           </Typography>
-          {subCount && (
-            <Typography variant="body2" color="white">
-              {sub} Subscribers
-            </Typography>
-          )}
+        )}
 
-        </CardContent>
-      </Link>
+      </CardContent>
+    </Link>
 
-    </Box>
+    </Box >
   )
 }
 
