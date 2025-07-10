@@ -25,8 +25,6 @@ export const fetchFromAPI = async (url) => {
 	} catch (error) {
 		if(error) {
       	console.error('API Error:', error);
-    }
-
-    return { items: [] }; // so your app doesn't crash
+    } // so your app doesn't crash
 	}
 }

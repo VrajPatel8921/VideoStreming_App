@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <ChannelDetail />,
       },
       {
-        path: '/serch/:searchTerm',
+        path: '/search/:searchTerm',
         element: <SearchFeed />,
       },
     ]
