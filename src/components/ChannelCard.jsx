@@ -7,6 +7,7 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const ChannelCard = ({ channelDetail, subCount, mt }) => {
 
+  console.log(subCount);
 
   function formatNumber(subCount) {
     if (subCount < 1000) {

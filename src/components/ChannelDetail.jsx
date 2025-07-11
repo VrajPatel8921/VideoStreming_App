@@ -23,11 +23,12 @@ const ChannelDetail = () => {
 
         const count = parseInt(data.items[0].statistics.subscriberCount);
         const channelData = data.items[0]
-        setChannelDetail(channelData);
-        setSubCount(count);
-        // if (channelDetail) {
-        //   console.log("Channel Data Updated:", channelDetail);
-        // }
+        if(channelData){
+          setChannelDetail(channelData);
+        }
+        if(count){
+          setSubCount(count);
+        }
       } else {
         setSubCount(0);
         setChannelDetail(null);
