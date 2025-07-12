@@ -54,7 +54,7 @@ const VideoDetail = () => {
                   <Typography variant="body1" sx={{ opacity: 0.7 }}>
                     {videoDetail?.statistics?.viewCount
                       ? videoDetail?.statistics?.viewCount
-                      : "loading"}{" "}
+                      : "loading"}{"  "}
                     views
                   </Typography>
                   <Typography variant="body1" sx={{ opacity: 0.7 }}>
