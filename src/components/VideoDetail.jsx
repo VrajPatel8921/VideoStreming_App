@@ -45,7 +45,7 @@ const VideoDetail = () => {
             <Stack direction="row" justifyContent="space-between" sx={{color:"#fff"}} py={1} px={2}>
                 <Link to={`/channel/${videoDetail.snippet.channelId}`}>
                   <Typography variant={{sm:'subtitle1',md:"h6"}}>
-                    {videoDetail.snippet.channelTitle}
+                    {videoDetail?.snippet?.channelTitle}
                     <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }}/>
                   </Typography>
                 </Link>
@@ -60,7 +60,7 @@ const VideoDetail = () => {
                   <Typography variant="body1" sx={{ opacity: 0.7 }}>
                     {videoDetail?.statistics?.likeCount
                       ? videoDetail?.statistics?.likeCount
-                      : "loading"}{" "}
+                      : "loading"}{""}
                     likes
                   </Typography>
                 </Stack>
