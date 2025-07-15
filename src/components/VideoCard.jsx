@@ -6,9 +6,9 @@ import { demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelTitle, demoC
 
 
 const VideoCard = ({ video }) => {
-  const videoId = video.id.videoId;
-  const videoDetails = video.snippet;
-  const channelId = video.snippet.channelId;
+  const videoId = video?.id?.videoId;
+  const videoDetails = video?.snippet;
+  const channelId = video?.snippet?.channelId;
   
   // console.log(videoId);
 
@@ -49,7 +49,7 @@ const VideoCard = ({ video }) => {
             fontWeight="bold"
             color="gray"
           >
-            {videoDetails.channelTitle || demoChannelTitle}
+            {videoDetails?.channelTitle || demoChannelTitle}
             
             <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }} />
           </Typography>
