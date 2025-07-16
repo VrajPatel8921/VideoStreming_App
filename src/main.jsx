@@ -6,7 +6,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
 import { Feed, VideoDetail, ChannelDetail, SearchFeed } from './components';
 
-
+//Routing
 const router = createBrowserRouter([
   {
     path: '/',
