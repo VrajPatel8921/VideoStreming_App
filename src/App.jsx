@@ -9,7 +9,7 @@ function App() {
       <Box sx={{ backgroundColor: '#000' }}>
         <Navbar />
         <div className='pt-2'>
-          <Outlet />
+          <Outlet />// Use Outlete To Render Children Nodes.
         </div>
 
       </Box>
