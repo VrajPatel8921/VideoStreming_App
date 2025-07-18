@@ -13,7 +13,7 @@ const Slidebar = ({selectedCategory,setSelectedCategory}) => {
             }}
         >
             {categories.map((category) => {
-                const Icon = category.icon;
+                const Icon = category.icon;//Render Icon In Js To React
                 return (
                     <button
                         key={category.name}
